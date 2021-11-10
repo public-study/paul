@@ -2,15 +2,16 @@ import asyncio
 import random
 
 from aiohttp import web
+from aiohttp.web_request import Request
 
 
-async def echo_name(request):
+async def echo_name(request: Request):
     await asyncio.sleep(random.randint(0, 5))
     name = request.match_info.get("name", "Anonymous")
     return web.json_response({"hi": name})
 
 
-async def index(request):
+async def index(request: Request):
     await asyncio.sleep(random.randint(0, 5))
     return web.json_response({"index": "page"})
 
