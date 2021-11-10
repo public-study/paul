@@ -1,12 +1,12 @@
 version: "3.9"
 services:
   server:
-    build: .
+    build: ..
     ports:
       - "8080:8080"
     command: "python server.py"
   client:
-    build: .
+    build: ..
     command: "./start_client.sh"
     depends_on:
       - server
